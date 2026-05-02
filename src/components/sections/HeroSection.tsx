@@ -20,18 +20,18 @@ export function HeroSection() {
         <div className="pt-[80px] pb-12 lg:pt-[100px] lg:pb-[80px]">
           <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_360px] xl:grid-cols-[minmax(0,1fr)_400px] items-start gap-12">
             {/* LEFT: text content — pushed up; phone stays vertically centered separately */}
-            <div className="max-w-[820px] lg:pt-[40px]">
+            <div className="max-w-[820px] lg:pt-[40px] text-center lg:text-left">
               <span className="inline-flex items-center gap-2 rounded-[10px] border border-gray-200 bg-white px-2.5 py-[3px] text-xs font-medium text-[#1E1E1E] md:rounded-full md:gap-[14px] md:px-4 md:py-2 md:text-base">
                 <Image src="/callers/use-cases/b2c.svg" alt="" width={24} height={24} className="size-4 md:size-6" />
                 Built for B2C Companies
               </span>
 
-              <h1 className="mt-6 text-[40px] leading-[1.1] font-medium tracking-[-0.04em] text-[#1E1E1E] md:text-[56px] lg:text-[70px] lg:leading-[84px] lg:tracking-[-4.2px]">
-                <span className="block">Customer work routed</span>
-                <span className="block">right. Built on Comet.</span>
+              <h1 className="mt-6 text-[36px] leading-[1.1] font-medium tracking-[-0.04em] text-[#1E1E1E] md:text-[56px] lg:text-[70px] lg:leading-[84px] lg:tracking-[-4.2px]">
+                <span className="lg:block">Customer work routed </span>
+                <span className="lg:block">right. Built on Comet.</span>
               </h1>
 
-              <p className="mt-7 max-w-[640px] text-[16px] leading-[1.4] tracking-[-0.01em] text-black/80 lg:text-[18px]">
+              <p className="mt-7 max-w-[640px] mx-auto lg:mx-0 text-[16px] leading-[1.4] tracking-[-0.01em] text-black/80 lg:text-[18px]">
                 CometLab sits at the front line, handling the simple questions, checks, nudges,
                 and outreach across the customer lifecycle in the same way a good human would. It
                 answers, qualifies, re‑engages, and routes through your existing stack in seconds,
@@ -41,9 +41,16 @@ export function HeroSection() {
 
             </div>
 
-            {/* RIGHT: Phone — center is exactly on the white/blue boundary on desktop; centered & smaller on mobile */}
+            {/* RIGHT: Phone — center is exactly on the white/blue boundary on desktop; centered & smaller on mobile with horizontal background card */}
             <div className="relative justify-self-center lg:justify-self-end lg:-translate-x-[94px] xl:-translate-x-[114px] lg:pt-[20px] mt-8 lg:mt-0">
-              <Phone />
+              {/* Mobile-only: horizontal blue/purple background card behind phone */}
+              <div
+                className="absolute left-1/2 -translate-x-1/2 top-[18%] bottom-[8%] w-[calc(100vw-48px)] max-w-[420px] bg-[#7C3AED] rounded-[32px] lg:hidden"
+                aria-hidden
+              />
+              <div className="relative">
+                <Phone />
+              </div>
             </div>
           </div>
 
